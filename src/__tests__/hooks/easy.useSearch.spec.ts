@@ -89,11 +89,12 @@ describe('일정검색 test', () => {
     // 준일 : 4번테스트와 충돌입니다. 왜죠?
     const { result: searchResult } = renderHook(() => useSearch(events, new Date(), 'month'));
 
-    const { setSearchTerm, filteredEvents } = searchResult.current;
+    const { setSearchTerm } = searchResult.current;
     act(() => {
       setSearchTerm('');
     });
 
+    const { filteredEvents } = searchResult.current;
     expect(filteredEvents).toEqual(events);
   });
 
