@@ -4,12 +4,6 @@ import { useCalendarView } from '../../hooks/useCalendarView.ts';
 import { assertDate } from '../utils.ts';
 
 describe('초기 상태', () => {
-  beforeAll(() => {
-    //fake timer를 사용해서 테스트 데이터의 오늘 날짜를 '2024-10-01'고정한다.
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2024-10-01'));
-  });
-
   it('view는 "month"이어야 한다', () => {
     const { result } = renderHook(() => useCalendarView());
     expect(result.current.view).toBe('month');
