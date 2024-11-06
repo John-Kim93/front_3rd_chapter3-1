@@ -23,7 +23,10 @@ export function getWeekDates(date: Date): Date[] {
   return weekDates;
 }
 
-export function getWeeksAtMonth(currentDate: Date) {
+type WeekArray = Array<number | null>;
+type MonthWeeks = Array<WeekArray>;
+
+export function getWeeksAtMonth(currentDate: Date): MonthWeeks {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
   const daysInMonth = getDaysInMonth(year, month + 1);
